@@ -10,7 +10,7 @@ app: main.o sum.o sub.o
 main.o: main.c
 	gcc -I$(SRC_DIR) -c main.c
 sum.o:
-	gcc -I$(SRC_DIR) -c $(SRC_DIR)/sum.o
+	gcc -I$(SRC_DIR) -c $(SRC_DIR)/sum.c
 sub.o:
 	gcc -I$(SRC_DIR) -c $(SRC_DIR)/sub.c
 clean:
@@ -19,7 +19,7 @@ install: app
 	@if [ -d $(INSTDIR) ]; then \
 		cp app $(INSTDIR) ;\
 		chmod 777 $(INSTDIR)/app ;\
-		echo "Install is oke!" ;\
+		echo "Install is ok!" ;\
 	else \
-		echo "Istall error" ;\
+		echo "Install is error" ;\
 	fi
