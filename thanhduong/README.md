@@ -1,7 +1,9 @@
 #Duong Van Thanh
 
-Cac lenh github co ban.
+Cac lenh github co ban:
 
+1. `sudo apt-get install git` cai dat git cho ubuntu.
+2 git --version
 1. git barnch: xem minh dang dung o nhanh nao.
 2. git checkout 20161223: chuyen toi nhanh 20161223.
 3. git add thanhduong/baitapvim: them thu muc(hoac file).
