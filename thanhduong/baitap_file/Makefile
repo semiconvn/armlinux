@@ -1,6 +1,6 @@
 #Sample Makefile 
 CFLAGS= -Wall -O0
-CC = arm-linux-gcc
+CC = gcc
 
 INSTDIR=install
 SRC_DIR=src
