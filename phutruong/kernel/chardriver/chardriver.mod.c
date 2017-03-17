@@ -26,6 +26,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x220464a8, __VMLINUX_SYMBOL_STR(__class_create) },
 	{ 0x177758bc, __VMLINUX_SYMBOL_STR(__register_chrdev) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
+	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
 };
 
 static const char __module_depends[]
@@ -34,4 +35,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "F3852B7A78EBAC00FE0FBDE");
+MODULE_INFO(srcversion, "BF07CCA649F8122D7497D4B");

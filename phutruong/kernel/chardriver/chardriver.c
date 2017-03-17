@@ -15,11 +15,49 @@ static int majorNumber;
 static struct class* myClassID = NULL;
 static struct device* mydev = NULL;
 
+int device_open(struct inode *inode, struct file *filp);
+int device_release(struct inode *inode, struct file *filp);
+ssize_t device_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos);
+ssize_t device_write( struct file *filp, const char __user *buf, size_t count, loff_t
+*f_pos);
+static long device_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
+
 static struct file_operations myfileop = 
 {
-  .open = NULL,
-  .release = NULL
+  .owner = THIS_MODULE,
+  .open = device_open,
+  .read = device_read,
+  .unlocked_ioctl = device_ioctl,
+  .write = device_write,
+  .release = device_release
 };
+int device_open(struct inode *inode, struct file *filp) {
+  printk("Open driver\n");
+  return 0;
+}
+int device_release(struct inode *inode, struct file *filp) {
+  printk("close  driver\n");
+  return 0;
+}
+
+
+static long device_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
+{
+  
+  printk("ioctl function\n");
+  switch(cmd) {
+	case 0:
+		printk("Turn off LED\n");
+		break;
+	case 1:
+		printk("Turn on LED\n");
+		break;
+	default:
+		printk("Not recognize!!\n");
+		break;
+  }
+  return 0;
+}
 /** @brief The LKM initialization function
  *  The static keyword restricts the visibility of the function to within this C file. The __init
  *  macro means that for a built-in driver (not a LKM) the function is only used at initialization
