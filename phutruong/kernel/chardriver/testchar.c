@@ -17,7 +17,7 @@ int main()
     printf("cannot open device \n");
     goto exit;
   }
-  
+   ioctl(fd, 0, 0);
 exit:
    if(fd > 0){
 	close(fd);

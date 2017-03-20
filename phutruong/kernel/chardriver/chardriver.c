@@ -39,8 +39,16 @@ int device_release(struct inode *inode, struct file *filp) {
   printk("close  driver\n");
   return 0;
 }
+ssize_t device_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
+{
+}
 
 
+ssize_t device_write( struct file *filp, const char __user *buf, size_t count, loff_t
+*f_pos)
+{
+    
+}
 static long device_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {
   
@@ -53,7 +61,7 @@ static long device_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		printk("Turn on LED\n");
 		break;
 	default:
-		printk("Not recognize!!\n");
+		printk("Not recognize command!!\n");
 		break;
   }
   return 0;
